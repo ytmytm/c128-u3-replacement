@@ -6,6 +6,8 @@ This is a daughterboard that replaces U3 (74LS138) with a GAL22V10 as the I/O sp
 
 I needed it to split the I/O ($D000-$DFFF) space into more parts to support additional devices I had installed in my C128DCR: ACIA, SID#2 and CIA#3.
 
+The daughterboard (bottom left, just above ROMs) mimics U3 that was already on the mainboard and generates additional chip select signals for:
+
 - ACIA for [fast internal WiFi modem](https://github.com/dabonetn/Link232-Wifi) (top right)
 - CIA#3 for [CIAIDE IDE interface for a harddisk drive](https://github.com/ytmytm/c64-ciaide) (top right, same daughterboard)
 - SID#2 for dual/stereo SID chip tunes (L-shaped daughterboard hugging dual MMU for [256K expansion](https://github.com/ytmytm/c128-mmu-256k-exp))
@@ -40,6 +42,18 @@ This solution provides some extra flexibility:
 - if `CIA4_DC20` jumper is shorted then CIA#4 signal is active in $DD20-$DD3F
 
 ## Design
+
+### Idea
+
+We want to mimic original behavior. Here is the part of C128DCR schematic with U3:
+
+<img src="media/00.u3.jpg" alt="Stock C128 I/O address decoder" width=640>
+
+Whenever inputs G2/G3 are low (when I/O is accessed) we decode address lines A8/A9/A11 to generate chip select signals for pages $D4/$D5/$D6/$D7 and $DC/$DD/$DE/$DF.
+This is routed to relevant chips: SID ($D4), VDC ($D6), CIA#1 ($DC), CIA#2 ($DD) and to the cartridge port pins I/O1 ($DE) and I/O2 ($DF).
+
+Note that pins 14 ($D5) and 12 ($D7) are not connected. On a stock C128 you can connect one device to pin 12 to make it appear at $D700. The best choice is an internally installed ACIA (6551, SwiftLink)
+because it's already supported by both C64 (ccgms) and C128 (DesTerm 128) excellent software.
 
 ### Schematic
 
