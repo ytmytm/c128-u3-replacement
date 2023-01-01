@@ -1,0 +1,362 @@
+
+*******************************************************************************
+                                    C128-U3
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g22v10  Library DLIB-h-40-1
+Created         Thu Dec 08 00:23:29 2022
+Name            C128-U3 
+Partno          00 
+Revision        01 
+Date            2022-12-06 
+Designer        Maciej Witkowiak 
+Company         YTM Enterprises 
+Assembly        None 
+Location        
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+!ACIA =>
+    !A8
+  # !A9
+  # A11
+  # !ACIA_D700
+  # !IOCS
+  # !U31
+
+!CIA1 =>
+    A8
+  # A9
+  # !A11
+  # !IOCS
+  # !U31
+  # A5 & CIA3_DC20
+
+!CIA2 =>
+    !A8
+  # A9
+  # !A11
+  # !IOCS
+  # !U31
+  # A5 & CIA4_DD20
+
+!CIA3 =>
+    !A5
+  # A8
+  # A9
+  # !A11
+  # !CIA3_DC20
+  # !IOCS
+  # !U31
+
+!CIA4 =>
+    !A5
+  # !A8
+  # A9
+  # !A11
+  # !CIA4_DD20
+  # !IOCS
+  # !U31
+
+GATE =>
+    IOCS & U31
+
+!IO1 =>
+    A8
+  # !A9
+  # !A11
+  # !IOCS
+  # SID2_DE00
+  # !U31
+
+!IO2 =>
+    !A8
+  # !A9
+  # !A11
+  # !IOCS
+  # !U31
+
+!SID =>
+    A5
+  # A8
+  # A9
+  # A11
+  # !IOCS
+  # !U31
+
+!SID2 =>
+    !IOCS
+  # !U31
+  # A5 & A8
+  # A5 & A9
+  # A8 & A9
+  # !A9 & A11
+  # A9 & !A11
+  # A8 & !C64MODE
+  # A9 & !SID2_DE00
+  # !A5 & !A8 & !A9
+
+!VDC =>
+    A8
+  # !A9
+  # A11
+  # !IOCS
+  # !U31
+
+ACIA.oe  =>
+    1 
+
+CIA1.oe  =>
+    1 
+
+CIA2.oe  =>
+    1 
+
+CIA3.oe  =>
+    1 
+
+CIA4.oe  =>
+    1 
+
+IO1.oe  =>
+    1 
+
+IO2.oe  =>
+    1 
+
+SID.oe  =>
+    1 
+
+SID2.oe  =>
+    1 
+
+VDC.oe  =>
+    1 
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    A5                          7        V        -       -       -     
+    A8                          1        V        -       -       -     
+    A9                          2        V        -       -       -     
+    A11                         3        V        -       -       -     
+ !  ACIA                        18       V        6       16      2     
+ !  ACIA_D700                   9        V        -       -       -     
+ !  C64MODE                     6        V        -       -       -     
+ !  CIA1                        17       V        6       14      2     
+ !  CIA2                        16       V        6       12      2     
+ !  CIA3                        22       V        7       10      2     
+ !  CIA4                        23       V        7       8       2     
+ !  CIA3_DC20                   10       V        -       -       -     
+ !  CIA4_DD20                   11       V        -       -       -     
+    GATE                        0        I        1       -       -     
+ !  IO1                         15       V        6       10      2     
+ !  IO2                         14       V        5       8       2     
+ !  IOCS                        5        V        -       -       -     
+ !  SID                         21       V        6       12      2     
+ !  SID2                        20       V        10      14      2     
+ !  SID2_DE00                   8        V        -       -       -     
+ !  U31                         4        V        -       -       -     
+ !  VDC                         19       V        5       16      2     
+    ACIA                oe      18       D        1       1       0     
+    CIA1                oe      17       D        1       1       0     
+    CIA2                oe      16       D        1       1       0     
+    CIA3                oe      22       D        1       1       0     
+    CIA4                oe      23       D        1       1       0     
+    IO1                 oe      15       D        1       1       0     
+    IO2                 oe      14       D        1       1       0     
+    SID                 oe      21       D        1       1       0     
+    SID2                oe      20       D        1       1       0     
+    VDC                 oe      19       D        1       1       0     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+
+
+===============================================================================
+                                   Fuse Plot
+===============================================================================
+
+SP 
+ 05764 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+AR 
+ 00000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+Pin #23  05808 Mode  -- 
+ 00044 -------------------------------------------- 
+ 00088 -------------------------x------------------ 
+ 00132 -x------------------------------------------ 
+ 00176 ----x--------------------------------------- 
+ 00220 ---------x---------------------------------- 
+ 00264 ----------------------------------------x--- 
+ 00308 ----------------x--------------------------- 
+ 00352 ------------x------------------------------- 
+ 00396 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #22  05810 Mode  -- 
+ 00440 -------------------------------------------- 
+ 00484 -------------------------x------------------ 
+ 00528 x------------------------------------------- 
+ 00572 ----x--------------------------------------- 
+ 00616 ---------x---------------------------------- 
+ 00660 ------------------------------------x------- 
+ 00704 ----------------x--------------------------- 
+ 00748 ------------x------------------------------- 
+ 00792 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00836 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #21  05812 Mode  -- 
+ 00924 -------------------------------------------- 
+ 00968 ------------------------x------------------- 
+ 01012 x------------------------------------------- 
+ 01056 ----x--------------------------------------- 
+ 01100 --------x----------------------------------- 
+ 01144 ----------------x--------------------------- 
+ 01188 ------------x------------------------------- 
+ 01232 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01276 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01320 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01364 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01408 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01452 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #20  05814 Mode  -- 
+ 01496 -------------------------------------------- 
+ 01540 ----------------x--------------------------- 
+ 01584 ------------x------------------------------- 
+ 01628 x-----------------------x------------------- 
+ 01672 ----x-------------------x------------------- 
+ 01716 x---x--------------------------------------- 
+ 01760 -----x--x----------------------------------- 
+ 01804 ----x----x---------------------------------- 
+ 01848 x-------------------x----------------------- 
+ 01892 ----x-----------------------x--------------- 
+ 01936 -x---x-------------------x------------------ 
+ 01980 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02024 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02068 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02112 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #19  05816 Mode  -- 
+ 02156 -------------------------------------------- 
+ 02200 x------------------------------------------- 
+ 02244 -----x-------------------------------------- 
+ 02288 --------x----------------------------------- 
+ 02332 ----------------x--------------------------- 
+ 02376 ------------x------------------------------- 
+ 02420 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02464 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02508 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02552 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02596 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02640 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02684 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02728 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02772 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02816 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02860 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #18  05818 Mode  -- 
+ 02904 -------------------------------------------- 
+ 02948 -x------------------------------------------ 
+ 02992 -----x-------------------------------------- 
+ 03036 --------x----------------------------------- 
+ 03080 --------------------------------x----------- 
+ 03124 ----------------x--------------------------- 
+ 03168 ------------x------------------------------- 
+ 03212 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03256 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03300 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03344 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03388 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03432 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03476 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03520 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03564 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 03608 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #17  05820 Mode  -- 
+ 03652 -------------------------------------------- 
+ 03696 x------------------------------------------- 
+ 03740 ----x--------------------------------------- 
+ 03784 ---------x---------------------------------- 
+ 03828 ----------------x--------------------------- 
+ 03872 ------------x------------------------------- 
+ 03916 ------------------------x------------x------ 
+ 03960 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04004 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04048 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04092 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04136 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04180 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04224 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04268 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #16  05822 Mode  -- 
+ 04312 -------------------------------------------- 
+ 04356 -x------------------------------------------ 
+ 04400 ----x--------------------------------------- 
+ 04444 ---------x---------------------------------- 
+ 04488 ----------------x--------------------------- 
+ 04532 ------------x------------------------------- 
+ 04576 ------------------------x----------------x-- 
+ 04620 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04664 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04708 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04752 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04796 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 04840 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #15  05824 Mode  -- 
+ 04884 -------------------------------------------- 
+ 04928 x------------------------------------------- 
+ 04972 -----x-------------------------------------- 
+ 05016 ---------x---------------------------------- 
+ 05060 ----------------x--------------------------- 
+ 05104 -----------------------------x-------------- 
+ 05148 ------------x------------------------------- 
+ 05192 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 05236 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 05280 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 05324 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #14  05826 Mode  -- 
+ 05368 -------------------------------------------- 
+ 05412 -x------------------------------------------ 
+ 05456 -----x-------------------------------------- 
+ 05500 ---------x---------------------------------- 
+ 05544 ----------------x--------------------------- 
+ 05588 ------------x------------------------------- 
+ 05632 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 05676 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 05720 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+
+LEGEND    X : fuse not blown 
+          - : fuse blown 
+
+===============================================================================
+                                 Chip Diagram
+===============================================================================
+
+                               ______________
+                              |   C128-U3    |
+                       A8 x---|1           24|---x Vcc                      
+                       A9 x---|2           23|---x !CIA4                    
+                      A11 x---|3           22|---x !CIA3                    
+                     !U31 x---|4           21|---x !SID                     
+                    !IOCS x---|5           20|---x !SID2                    
+                 !C64MODE x---|6           19|---x !VDC                     
+                       A5 x---|7           18|---x !ACIA                    
+               !SID2_DE00 x---|8           17|---x !CIA1                    
+               !ACIA_D700 x---|9           16|---x !CIA2                    
+               !CIA3_DC20 x---|10          15|---x !IO1                     
+               !CIA4_DD20 x---|11          14|---x !IO2                     
+                      GND x---|12          13|---x                          
+                              |______________|
+

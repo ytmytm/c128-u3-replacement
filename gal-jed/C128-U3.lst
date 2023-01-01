@@ -1,0 +1,108 @@
+LISTING FOR LOGIC DESCRIPTION FILE: C128-U3.pld                      Page 1
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Thu Dec 08 00:23:28 2022
+
+  1:Name     C128-U3 ;
+  2:PartNo   00 ;
+  3:Date     2022-12-06 ;
+  4:Revision 01 ;
+  5:Designer Maciej Witkowiak ;
+  6:Company  YTM Enterprises ;
+  7:Assembly None ;
+  8:Location  ;
+  9:Device   g22v10 ;
+ 10:
+ 11:/* input 1-11,13 */
+ 12:/* i/o/q 14-23 */
+ 13:/* GND 12, VCC 24 */
+ 14:
+ 15:/* *************** INPUT PINS *********************/
+ 16:PIN 1   = A8                      ; /* 1 A                               */
+ 17:PIN 2   = A9                      ; /* 2 B                               */
+ 18:PIN 3   = A11                     ; /* 3 C                               */
+ 19:PIN 4   = !U31                    ; /* 4 /G2A                            */
+ 20:PIN 5   = !IOCS                   ; /* 5 /G2B                            */
+ 21:PIN 6   = !C64MODE                ; /* route to pad                      */
+ 22:PIN 7   = A5                      ; /* route to pad                      */
+ 23:
+ 24:PIN 8   = !SID2_DE00              ; /* jumper to GND to enable (default pullup disable) */
+ 25:PIN 9   = !ACIA_D700              ; /* jumper to GND to enable (default pullup disable) */
+ 26:PIN 10  = !CIA3_DC20              ; /* jumper to GND to enable (default pullup disable) */
+ 27:PIN 11  = !CIA4_DD20              ; /* jumper to GND to enable (default pullup disable) */
+ 28:
+ 29:/* *************** OUTPUT PINS *********************/
+ 30:PIN 14  = !IO2                    ; /*  7, Y7, /DF00 $DF00             */
+ 31:PIN 15  = !IO1                    ; /*  9, Y6, /DE00 $DE00             */
+ 32:PIN 16  = !CIA2                   ; /* 10, Y5, /DD00 $DD00             */
+ 33:PIN 17  = !CIA1                   ; /* 11, Y4, /DC00 $DC00             */
+ 34:PIN 18  = !ACIA                   ; /* 12, Y3, /D700 $D700 connect to socket and route to pad  */
+ 35:PIN 19  = !VDC                    ; /* 13, Y2, /VDC  $D600             */
+ 36:PIN 20  = !SID2                   ; /* 14, Y1, /D500 $D500 don't connect to socket, route to pad */
+ 37:PIN 21  = !SID                    ; /* 15, Y0, /SID  $D400             */
+ 38:PIN 22  = !CIA3                   ; /*         /DC20 $DC20 route to pad  */
+ 39:PIN 23  = !CIA4                   ; /* 15, Y0, /DD20 $DD20 route to pad  */
+ 40:
+ 41:GATE = U31 & IOCS ;
+ 42:
+ 43:/* D400-D41F */
+ 44:SID  = GATE & !A11 & !A9 & !A8 & !A5;
+ 45:/* D500 in C64 mode, D420-D43F, DE00 if enabled */
+ 46:SID2 = GATE & ( ( !A11 & !A9 &  A8 & !A5 & C64MODE ) #
+ 47:                ( !A11 & !A9 & !A8 & A5 ) #
+ 48:                (  A11 &  A9 & !A8 & !A5 & SID2_DE00 ) );
+ 49:/* D600 VDC */
+ 50:VDC  = GATE & !A11 &  A9 & !A8;
+ 51:/* D700 ACIA */
+ 52:ACIA = GATE & !A11 &  A9 &  A8 &  ACIA_D700;
+ 53:/* DC00 CIA1 */
+
+LISTING FOR LOGIC DESCRIPTION FILE: C128-U3.pld                      Page 2
+
+CUPL(WM): Universal Compiler for Programmable Logic
+Version 5.0a Serial# 60008009
+Copyright (c) 1983, 1998 Logical Devices, Inc.
+Created Thu Dec 08 00:23:28 2022
+
+ 54:CIA1 = GATE &  A11 & !A9 & !A8 & (CIA3_DC20 & !A5 # !CIA3_DC20);
+ 55:CIA3 = GATE &  A11 & !A9 & !A8 & A5 & CIA3_DC20;
+ 56:/* DD00 CIA2 */
+ 57:CIA2 = GATE &  A11 & !A9 &  A8 & (CIA4_DD20 & !A5 # !CIA4_DD20);
+ 58:CIA4 = GATE &  A11 & !A9 &  A8 & A5 & CIA4_DD20;
+ 59:/* DE00 I/O1 unless SID2 enabled there via jumper */
+ 60:IO1  = GATE &  A11 &  A9 & !A8 & !SID2_DE00;
+ 61:/* DF00 I/O2 */
+ 62:IO2  = GATE &  A11 &  A9 &  A8;
+ 63:
+ 64:/* tested
+ 65:gate disabled
+ 66:gate disabled
+ 67:SID  in $D400
+ 68:SID2 in $D420
+ 69:SID2 in $D500 only in C64 mode
+ 70:nothing in $D520 in C64 mode
+ 71:nothing in $D500 in C128 mode
+ 72:nothing in $D520 in C128 mode
+ 73:IO1 in $DE00 when SID2_DE00 disabled
+ 74:SID2 in $DE00 when SID2_DE00 enabled
+ 75:nothing in $DE20 when SID2_DE00 enabled
+ 76:VDC in $D600
+ 77:ACIA in $D700 when ACIA_D700 enabled
+ 78:nothing in $D700 when ACIA_D700 disabled
+ 79:- CIA1 at $DC00
+ 80:- CIA1 at $DC20 when CIA3 disabled
+ 81:- CIA3 at $DC20 when CIA3 enabled
+ 82:- CIA2 at $DD00
+ 83:- CIA2 at $DD20 when CIA4 disabled
+ 84:- CIA4 at $DD20 when CIA4 enabled
+ 85:- IO2 at $DF00
+ 86:*/
+ 87:
+ 88:
+
+
+
+Jedec Fuse Checksum       (95d6)
+Jedec Transmit Checksum   (cce5)

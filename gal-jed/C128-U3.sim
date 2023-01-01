@@ -1,0 +1,146 @@
+%SIGNAL
+PIN   7 =  A5 
+PIN   1 =  A8 
+PIN   2 =  A9 
+PIN   3 =  A11 
+PIN  18 = !ACIA 
+PIN   9 = !ACIA_D700 
+PIN   6 = !C64MODE 
+PIN  17 = !CIA1 
+PIN  16 = !CIA2 
+PIN  22 = !CIA3 
+PIN  23 = !CIA4 
+PIN  10 = !CIA3_DC20 
+PIN  11 = !CIA4_DD20 
+PIN  15 = !IO1 
+PIN  14 = !IO2 
+PIN   5 = !IOCS 
+PIN  21 = !SID 
+PIN  20 = !SID2 
+PIN   8 = !SID2_DE00 
+PIN   4 = !U31 
+PIN  19 = !VDC 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+!ACIA =>
+    !A8
+  # !A9
+  # A11
+  # ACIA_D700
+  # IOCS
+  # U31
+
+!CIA1 =>
+    A8
+  # A9
+  # !A11
+  # IOCS
+  # U31
+  # A5 & !CIA3_DC20
+
+!CIA2 =>
+    !A8
+  # A9
+  # !A11
+  # IOCS
+  # U31
+  # A5 & !CIA4_DD20
+
+!CIA3 =>
+    !A5
+  # A8
+  # A9
+  # !A11
+  # CIA3_DC20
+  # IOCS
+  # U31
+
+!CIA4 =>
+    !A5
+  # !A8
+  # A9
+  # !A11
+  # CIA4_DD20
+  # IOCS
+  # U31
+
+GATE =>
+    IOCS & U31
+
+!IO1 =>
+    A8
+  # !A9
+  # !A11
+  # IOCS
+  # !SID2_DE00
+  # U31
+
+!IO2 =>
+    !A8
+  # !A9
+  # !A11
+  # IOCS
+  # U31
+
+!SID =>
+    A5
+  # A8
+  # A9
+  # A11
+  # IOCS
+  # U31
+
+!SID2 =>
+    IOCS
+  # U31
+  # A5 & A8
+  # A5 & A9
+  # A8 & A9
+  # !A9 & A11
+  # A9 & !A11
+  # A8 & C64MODE
+  # A9 & SID2_DE00
+  # !A5 & !A8 & !A9
+
+!VDC =>
+    A8
+  # !A9
+  # A11
+  # IOCS
+  # U31
+
+ACIA.oe  =>
+    1 
+
+CIA1.oe  =>
+    1 
+
+CIA2.oe  =>
+    1 
+
+CIA3.oe  =>
+    1 
+
+CIA4.oe  =>
+    1 
+
+IO1.oe  =>
+    1 
+
+IO2.oe  =>
+    1 
+
+SID.oe  =>
+    1 
+
+SID2.oe  =>
+    1 
+
+VDC.oe  =>
+    1 
+
+%END

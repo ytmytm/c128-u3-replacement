@@ -1,0 +1,35 @@
+Name     C128-U3;
+PartNo   00;
+Date     2022-12-06;
+Revision 01;
+Designer Maciej Witkowiak;
+Company  YTM Enterprises;
+Assembly None;
+Location ;
+
+
+ORDER: !U31, !IOCS, A11, A9, A8, A5, !C64MODE, !SID2_DE00, !ACIA_D700, !CIA3_DC20, !CIA4_DD20, !SID, !SID2, !VDC, !ACIA, !CIA1, !CIA3, !CIA2, !CIA4, !IO1, !IO2; 
+
+
+VECTORS:
+1XXXXXXXXXXHHHHHHHHHH  /* gate disabled */
+X1XXXXXXXXXHHHHHHHHHH  /* gate disabled */
+000000XXXXXLHHHHHHHHH  /* SID#1 accessed at $D400 */
+000001XXXXXHLHHHHHHHH  /* SID#2 accessed at $D420 */
+0000100XXXXHLHHHHHHHH  /* SID#2 accessed at $D500 in C64 mode */
+0000110XXXXHHHHHHHHHH  /* nothing active at $D520 in C64 mode */
+0000101XXXXHHHHHHHHHH  /* nothing active at $D500 in C128 mode */
+0000111XXXXHHHHHHHHHH  /* nothing active at $D520 in C128 mode */
+00110XX1XXXHHHHHHHHLH  /* I/O#1 at $DE00 when SID2_DE00 disabled (internal pullup) */
+001100X0XXXHLHHHHHHHH  /* SID#2 at $DE00 when SID2_DE00 enabled (pulled low) */
+001101X0XXXHHHHHHHHHH  /* nothing active at $DE20 when SID2_DE00 enabled */
+00010XXXXXXHHLHHHHHHH  /* VDC   accessed at $D600 */
+00011XXX0XXHHHLHHHHHH  /* ACIA  accessed at $D700 when ACIA_D700 enabled (pulled low) */
+00011XXX1XXHHHHHHHHHH  /* nothing active at $D700 when ACIA_D700 disabled (internal pullup) */
+001000XXXXXHHHHLHHHHH  /* CIA#1 accessed at $DC00 */
+001001XXX1XHHHHLHHHHH  /* CIA#1 accessed at $DC20 when CIA3_DC20 disabled (internal pullup) */
+001001XXX0XHHHHHLHHHH  /* CIA#3 accessed at $DC20 when CIA3_DC20 enabled (pulled low) */
+001010XXXXXHHHHHHLHHH  /* CIA#2 accessed at $DD00 */
+001011XXXX1HHHHHHLHHH  /* CIA#2 accessed at $DD20 when CIA4_DD20 disabled (internal pullup) */
+001011XXXX0HHHHHHHLHH  /* CIA#4 accessed at $DD20 when CIA4_DD20 enabled (pulled low) */
+00111XXXXXXHHHHHHHHHL  /* IO#2 at $DF00 */

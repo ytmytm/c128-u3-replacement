@@ -1,0 +1,62 @@
+Name     C128-U3 ;
+PartNo   00 ;
+Date     2022-12-06 ;
+Revision 01 ;
+Designer Maciej Witkowiak ;
+Company  YTM Enterprises ;
+Assembly None ;
+Location  ;
+Device   g22v10 ;
+
+/* input 1-11,13 */
+/* i/o/q 14-23 */
+/* GND 12, VCC 24 */
+
+/* *************** INPUT PINS *********************/
+PIN 1   = A8                      ; /* 1 A                               */
+PIN 2   = A9                      ; /* 2 B                               */
+PIN 3   = A11                     ; /* 3 C                               */
+PIN 4   = !U31                    ; /* 4 /G2A                            */
+PIN 5   = !IOCS                   ; /* 5 /G2B                            */
+PIN 6   = !C64MODE                ; /* route to pad                      */
+PIN 7   = A5                      ; /* route to pad                      */
+
+PIN 8   = !SID2_DE00              ; /* jumper to GND to enable (default pullup disable) */
+PIN 9   = !ACIA_D700              ; /* jumper to GND to enable (default pullup disable) */
+PIN 10  = !CIA3_DC20              ; /* jumper to GND to enable (default pullup disable) */
+PIN 11  = !CIA4_DD20              ; /* jumper to GND to enable (default pullup disable) */
+
+/* *************** OUTPUT PINS *********************/
+PIN 14  = !IO2                    ; /*  7, Y7, /DF00 $DF00             */
+PIN 15  = !IO1                    ; /*  9, Y6, /DE00 $DE00             */
+PIN 16  = !CIA2                   ; /* 10, Y5, /DD00 $DD00             */
+PIN 17  = !CIA1                   ; /* 11, Y4, /DC00 $DC00             */
+PIN 18  = !ACIA                   ; /* 12, Y3, /D700 $D700 connect to socket and route to pad  */
+PIN 19  = !VDC                    ; /* 13, Y2, /VDC  $D600             */
+PIN 20  = !SID2                   ; /* 14, Y1, /D500 $D500 don't connect to socket, route to pad */
+PIN 21  = !SID                    ; /* 15, Y0, /SID  $D400             */
+PIN 22  = !CIA3                   ; /*         /DC20 $DC20 route to pad  */
+PIN 23  = !CIA4                   ; /* 15, Y0, /DD20 $DD20 route to pad  */
+
+GATE = U31 & IOCS ;
+
+/* D400-D41F */
+SID  = GATE & !A11 & !A9 & !A8 & !A5;
+/* D500 in C64 mode, D420-D43F, DE00 if enabled */
+SID2 = GATE & ( ( !A11 & !A9 &  A8 & !A5 & C64MODE ) #
+                ( !A11 & !A9 & !A8 & A5 ) #
+                (  A11 &  A9 & !A8 & !A5 & SID2_DE00 ) );
+/* D600 VDC */
+VDC  = GATE & !A11 &  A9 & !A8;
+/* D700 ACIA */
+ACIA = GATE & !A11 &  A9 &  A8 &  ACIA_D700;
+/* DC00 CIA1 */
+CIA1 = GATE &  A11 & !A9 & !A8 & (CIA3_DC20 & !A5 # !CIA3_DC20);
+CIA3 = GATE &  A11 & !A9 & !A8 & A5 & CIA3_DC20;
+/* DD00 CIA2 */
+CIA2 = GATE &  A11 & !A9 &  A8 & (CIA4_DD20 & !A5 # !CIA4_DD20);
+CIA4 = GATE &  A11 & !A9 &  A8 & A5 & CIA4_DD20;
+/* DE00 I/O1 unless SID2 enabled there via jumper */
+IO1  = GATE &  A11 &  A9 & !A8 & !SID2_DE00;
+/* DF00 I/O2 */
+IO2  = GATE &  A11 &  A9 &  A8;
