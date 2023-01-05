@@ -12,7 +12,7 @@ The daughterboard (bottom left, just above ROMs) mimics U3 that was already on t
 
 - ACIA for [fast internal WiFi modem](https://github.com/dabonetn/Link232-Wifi) (top right)
 - CIA#3 for [CIAIDE IDE interface for a harddisk drive](https://github.com/ytmytm/c64-ciaide) (top right, same daughterboard)
-- SID#2 for dual/stereo SID chip tunes (L-shaped daughterboard hugging dual MMU for [256K expansion](https://github.com/ytmytm/c128-mmu-256k-exp))
+- SID#2 for dual/stereo SID chip tunes ([L-shaped daughterboard hugging dual MMU](https://github.com/ytmytm/c128-dcr-dual-sid) for [256K expansion](https://github.com/ytmytm/c128-mmu-256k-exp))
 
 <img src="media/01-mobo-dcr-2.jpg" alt="C128DCR mainboard with all sorts of expansions" width=640>
 
