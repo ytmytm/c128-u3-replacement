@@ -62,7 +62,9 @@ because it's already supported by both C64 (ccgms) and C128 (DesTerm 128) excell
 There is not much to see on the [schematic](media/c128-u3-gal.pdf). The circuit is meant to replace the onboard U3 (74LS138) with a GAL22V10. Jumpers short certain signals to the ground
 and enable additional functions.
 
-[kicad](kicad/) folder contains all the KiCad 6.0 project files.
+[kicad](kicad/) folder contains all the KiCad 6.0 project files for C128DCR.
+
+[kicad-c128d](kicad-c128d/) folder contains all the KiCad 6.0 project files for C128D. The schematic is identical, only PCB project differs.
 
 ### GAL
 
