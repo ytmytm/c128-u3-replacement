@@ -36,12 +36,12 @@ it doesn't solve the issue of having second SID at $D420.
 This solution provides some extra flexibility:
 
 - SID#1 is active in $D400-$D41F and $D440-$D4FF areas always
-- SID#2 signal is active in $D420-$D43F always, in $D500-$D51F in C64 mode and in $DE00-$DE1F if `SID2_DE00` jumper is shorted
+- SID#2 signal is active in $D420-$D43F always, in $D500-$D51F in C64 mode and in $DE00-$DE1F if `SID2_DE00` jumper is shorted (in this case `I/O1` signal for $DE00-$DEFF activity *will not* be active on Expansion port)
 - ACIA signal (meant for 6551 serial port) is active in $D700-$D7FF only if `ACIA_D700` jumper is shorted
 - if `CIA3_DC20` jumper is shorted then CIA#1 is active in $DC00-$DC1F and $DC40-$DCFF areas
 - if `CIA3_DC20` jumper is shorted then CIA#3 signal is active in $DC20-$DC3F
-- if `CIA4_DC20` jumper is shorted then CIA#2 is active in $DD00-$DD1F and $DD40-$DDFF areas
-- if `CIA4_DC20` jumper is shorted then CIA#4 signal is active in $DD20-$DD3F
+- if `CIA4_DD20` jumper is shorted then CIA#2 is active in $DD00-$DD1F and $DD40-$DDFF areas
+- if `CIA4_DD20` jumper is shorted then CIA#4 signal is active in $DD20-$DD3F
 
 ## Design
 
@@ -83,6 +83,8 @@ I have used TL866 II Plus to flash them. Remember to turn off "Encrypt chip" and
 ### PCB
 
 [kicad/plots](kicad/plots) folder contains Gerber files for manufacturing a **PCB that will fit C128DCR and not collide with the power supply**. It will **not** fit properly into C128D.
+
+For a PCB that will fit in C128D look into [kicad-c128d/plots](kicad-c128d/plots)
 
 ## Installation
 
