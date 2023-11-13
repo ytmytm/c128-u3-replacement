@@ -927,7 +927,7 @@
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c4b873b6-3fb3-47ef-b812-abfb000cba2a)
     (property "Reference" "U2" (id 0) (at 135.255 67.31 0))
-    (property "Value" "GAL20V10" (id 1) (at 135.255 69.85 0))
+    (property "Value" "GAL22V10" (id 1) (at 135.255 69.85 0))
     (property "Footprint" "Package_DIP:DIP-24_W7.62mm_LongPads" (id 2) (at 134.62 69.85 0)
       (effects (font (size 1.27 1.27)) hide)
     )
@@ -993,7 +993,7 @@
       (reference "U1") (unit 1) (value "74LS138") (footprint "Package_DIP:DIP-16_W7.62mm_LongPads")
     )
     (path "/c4b873b6-3fb3-47ef-b812-abfb000cba2a"
-      (reference "U2") (unit 1) (value "GAL20V10") (footprint "Package_DIP:DIP-24_W7.62mm_LongPads")
+      (reference "U2") (unit 1) (value "GAL22V10") (footprint "Package_DIP:DIP-24_W7.62mm_LongPads")
     )
   )
 )

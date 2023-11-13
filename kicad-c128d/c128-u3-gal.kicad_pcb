@@ -251,7 +251,7 @@
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp c6002dc7-6c68-431b-b30f-ae4d8e669347)
     )
-    (fp_text value "GAL20V10" (at 3.825 13.975 90) (layer "F.SilkS")
+    (fp_text value "GAL22V10" (at 3.825 13.975 90) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 9c8ea2cb-ac48-4c58-97e6-0b750ed6de51)
     )
