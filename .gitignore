@@ -1,0 +1,10 @@
+# freerouting
+*.dsn
+*.ses
+*.rules
+# KiCad
+fp-info-cache
+kicad/c128-u3-gal-backups/*
+kicad-c128d/c128-u3-gal-backups/*
+# manufacturing
+*.zip
