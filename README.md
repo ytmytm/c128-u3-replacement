@@ -2,7 +2,13 @@
 
 This is a daughterboard that replaces U3 (74LS138) with a GAL22V10 as the I/O space address decoder providing extra features.
 
-<img src="media/c128-u3-gal.jpg" alt="PCB" width=640>
+### C128DCR
+
+<img src="media/c128-u3-gal.jpg" alt="PCB for C128DCR" width=640>
+
+### C128D
+
+<img src="media/PCB-C128D-top.png" alt="PCB for C128D" width=480>
 
 ## Background
 
